@@ -1,0 +1,30 @@
+<br>
+<h1>Report of All Tasks Completed</h1>
+
+</div>
+<div class="container-fluid stripped-table">
+<table class="table">
+  <thead >
+    <tr >
+      <th>Task (ID) </th>
+      <th>Comments </th>
+      <th>Status </th>
+    </tr>
+  </thead>
+
+  <tbody> 
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.id %></td>
+        <td>
+            <% task.comments.all.sort{|a,b| a.body.to_s.upcase <=> b.body.to_s.upcase}.each do |comment| %>
+                *<%= comment.body %>
+                <br>
+            <% end %>
+        </td>
+        <td><%= task.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
+  #route to access the report of tasks done. 
+  get 'report', to: 'report#index'
 
   resources :tasks 
 
