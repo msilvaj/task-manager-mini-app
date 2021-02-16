@@ -9,7 +9,9 @@
     <% if (user_signed_in?)%> 
       <!-- Dropdown -->
       <div class="btn-group ml-3"> 
-        <button type="button" class="btn btn-outline-primary"><i class='fa fa-tasks'></i>  Your Tasks</button> 
+        <button type="button" class="btn btn-outline-primary"><i class='fa fa-tasks'></i> 
+          <%= link_to 'Your Tasks', '/mytasks'%>
+        </button> 
         <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="sr-only">Toggle Dropdown</span>
         </button>

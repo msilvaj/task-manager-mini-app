@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "home#index"
   #route to access the report of tasks done. 
   get 'report', to: 'report#index'
+  get 'mytasks', to: 'tasks#mytasks'
 
   resources :tasks 
 
