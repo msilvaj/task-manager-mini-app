@@ -1,8 +1,13 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :public?, except: %i[private_page]
- 
+ #create body of the method -> show
   def show 
+    @profile = Profile.find(params[:id])
+      respond_to do | format |
+        format.html
+      end
+
   end
 
   def new
@@ -23,17 +28,18 @@ class ProfilesController < ApplicationController
 
   def edit 
   end
-
+#fix update profile
   def update
     if @profile.update(profile_params)
-      flash[:notice] = 'Task Updated!'
+      flash[:notice] = 'Profile Updated!'
       redirect_to @profile
     else
       render :edit
     end 
   end
-
+#fix change provacy. was not receiving the ID.
   def change_privacy
+    @profile = Profile.find(params[:id])
     @profile.update(privacy_params)
     redirect_to @profile
   end
@@ -42,8 +48,9 @@ class ProfilesController < ApplicationController
   end
 
   private 
-
+#define params of Profile
   def profile_params
+    params.require(:profile).permit(:nickname, :bio, :share)
   end 
 
   def privacy_params
@@ -53,10 +60,10 @@ class ProfilesController < ApplicationController
   def find_profile
     @profile = Profile.find(params[:id])
   end
-
+#alther 
   def public?
-    unless (current_user.profile == @profile)
-      unless @profile.share
+    if (current_user.profile == @profile)
+      if @profile.share
         redirect_to private_page_profile_path(@profile)
       end
     end
