@@ -1,9 +1,17 @@
+<h1>Listing Task <%= @task.id%></h1>
 <div class='container border'>
-  
-  <div class='row'>
     <% if @task == current_user.tasks.find(@task.id) %>
-      <h1 class='col', align='center'> Task, <%= @task.title %>!</h1>
-       
-    
+      <h1> Title</h5> 
+        <%= @task.title %>!</h1>
+      <br>
+      <h5> Description</h5>
+        <%= @task.description %></h5>
+      <br>
+      <h5> Status</h5> 
+        <%= @task.status %></h5>
+      <br>
+      <h5>Share</h5> 
+      <%= @task.share %></h5>
+      <br>
     <% end %>
   </div>

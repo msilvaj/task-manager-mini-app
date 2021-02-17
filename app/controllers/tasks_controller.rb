@@ -11,6 +11,18 @@ class TasksController < ApplicationController
     @tasks = current_user.tasks.all
   end
 
+  def new_comment
+    puts "DDSDDDFDFFFF"
+    puts "DDSDDDFDFFFF"
+    puts "DDSDDDFDFFFF"
+    puts "DDSDDDFDFFFF"
+   puts task
+   puts "DDSDDDFDFFFF"
+   puts "DDSDDDFDFFFF"
+   puts "DDSDDDFDFFFF"
+   puts "DDSDDDFDFFFF"
+  end
+
   def show 
     @task = Task.find(params[:id])
       respond_to do | format |
@@ -71,7 +83,7 @@ class TasksController < ApplicationController
   end  
 
   def comment_params
-    params.require(:comment).permit(:body, :status, :score, :like)
+    params.require(:comment).permit(:body)
   end 
 
   def sanitize_sql_like(string, escape_character = "\\")
