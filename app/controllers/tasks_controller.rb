@@ -11,17 +11,7 @@ class TasksController < ApplicationController
     @tasks = current_user.tasks.all
   end
 
-  def new_comment
-    puts "DDSDDDFDFFFF"
-    puts "DDSDDDFDFFFF"
-    puts "DDSDDDFDFFFF"
-    puts "DDSDDDFDFFFF"
-   puts task
-   puts "DDSDDDFDFFFF"
-   puts "DDSDDDFDFFFF"
-   puts "DDSDDDFDFFFF"
-   puts "DDSDDDFDFFFF"
-  end
+ 
 
   def show 
     @task = Task.find(params[:id])
